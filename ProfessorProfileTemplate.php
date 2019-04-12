@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-  <title>Professor's Profile</title>
+  <head>
+    <title>Professor's Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Laila" rel="stylesheet">
-    <link rel="stylesheet" href="ScheduleMatching.css">
+    <link rel="stylesheet" href="ProfessorProfileTemplate.css">
     <meta charset = "utf-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
@@ -20,8 +20,8 @@
       </div>
 
       <form action="" method="post">
-          <input type = "text" name = "search" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
-          autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" name = "submit-search"  id = "search-btn" value="Go!"/>
+          <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
+          autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
       </form>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
@@ -29,7 +29,7 @@
         <div class="menu">
           <ul>
           <li>
-          <a href="homepage.php">Home</a></li>
+          <a href="homepage.html">Home</a></li>
           <li>
           <a href="OfficeNavigation.html">Office Navigation</a></li>
           <li>
@@ -42,9 +42,7 @@
       <label for="nav-toggle" class="burger"><span></span></label>
     </nav>
 
-<h2>Find the professors:<h2>
-
-<div class = "professor-container">
+<h2>
   <?php
   	if(isset($_POST['submit-search'])){
   		$search = mysqli_real_escape_string($con, $_POST['search']);
@@ -54,12 +52,12 @@
 
     	if($queryResults >0){
     		while($row = mysqli_fetch_assoc($result)){
-      		echo "<div>
-        	<h2>".$row['name']."</h2>
-        	<p>".$row['Office']."</p>
-        	<p>".$row['Hours']."</p>
-        	<p>".$row['Current course']."</p>
-      		</div>";
+      		echo "<ul>
+        	<li>".$row['name']."</li>
+        	<li>".$row['Office']."</li>
+        	<li>".$row['Hours']."</li>
+        	<li>".$row['Current course']."</li>
+      		</ul>";
     }
 
     	}else{
@@ -68,15 +66,24 @@
   	}
 
   ?>
-</div>
-
-<h2>Rate this Professor</h2>
-    <input type='text' id='messageInput'  placeholder='Enter comments here...'>
-    <button type="button" onclick="savedata()">Post & Save</button>
-    <br><br><br>
-    <hr>
-    <h2>Comments</h2>
-    <textarea rows="10" cols="50" id="results" readonly></textarea>
+	<ul class="professorpic"> <!--map and schedule button-->
+		<!-- here is the map navigation -->
+		<li><a href="#">Map</a></li>
+		<!-- here is the schedule navigation -->
+		<li><a href="#">Schedule</a></li>
+	</ul>
+</h2>
+<h1></h1>
+<!-- here is the comment box -->
+<commentbox>
+	<input type='text' id='messageInput'  placeholder='Enter comments here...'>
+	<button type="button" id='messageButton' onclick="savedata()">Post</button>
+</commentbox>
+<!-- here is the comment area -->
+<h1></h1>
+<h8>Students' comments</h8>
+<h1></h1>
+<textarea id="results" readonly></textarea>
     <script>
     var messagesRef = new Firebase('https://ubstalking-19cf2.firebaseio.com/');
     var messageField = document.getElementById('messageInput');
