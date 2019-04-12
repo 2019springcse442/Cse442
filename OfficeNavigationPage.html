@@ -3,8 +3,9 @@
 <html>
 <head>
   <title>Office Navigation</title>
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Laila" rel="stylesheet">
-    <link rel="stylesheet" href="ScheduleMatching.css">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Laila" rel="stylesheet">
+      <link rel="stylesheet" href="ScheduleMatching.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta charset = "utf-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2ogWdtv62abQuk9IRB-xPYXk8HQ9jzJ4&callback=myMap">
@@ -130,31 +131,22 @@
       	infoWindow.open(map2);
       }
     	</script>
-    <nav>
-      <div class = "logo" href="homepage.html">
-        <h3> UBStalking'-' </h3>
-      </div>
+      <!-- navigation bar -->
+    <header class="header">
+    <a href="homepage.php" class="logo">UBStalking'-'</a>
+    <form action="" method="post">
+        <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
+        autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
+    </form>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a href="OfficeNavigation.html">Office Navigation</a></li>
+      <li><a href="#">Report Bugs</a></li>
+      <li><a href="homepage.php">Home</a></li>
+    </ul>
+  </header>
 
-      <form action="" method="post">
-          <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
-          autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
-      </form>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-
-        <div class="menu">
-          <ul>
-          <li>
-          <a href="homepage.php">Home</a></li>
-          <li>
-          <a href="ScheduleMatching.html">Schedule Matching</a></li>
-          <li>
-          <a href="#">Report Bugs</a></li>
-          </ul>
-      </div>
-
-      <label for="nav-toggle" class="burger"><span></span></label>
-    </nav>
 
 	<!-- The HTML Content Division element(<div>) is the generic container for flow content. It has no effect on the content or layout until styled using CSS. -->
 
