@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Office Navigation</title>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Laila" rel="stylesheet">
+    <link rel="stylesheet" href="ScheduleMatching.css">
+    <meta charset = "utf-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2ogWdtv62abQuk9IRB-xPYXk8HQ9jzJ4&callback=myMap">
+	</script>
+
+
+
+
+
+  </head>
+  <body>
+
+
+    <script>
+    		function myMap(){
+    			// defines the properties for the map
+    			// center at Buffalo
+    			var mapProp2 = {
+    				center:new google.maps.LatLng(43.0008,-78.7890),
+    				zoom:15,
+    			}
+    			// creates a new map inside the <div> element with id="googleMap", using the parameters that are passed(mapProp)
+    			var map2 = new google.maps.Map(document.getElementById("googleMap2"),mapProp2);
+    			// Google Maps Overlays
+    			// Overlays are objects on the map that are bound to latitude/longitude coordinates.
+    			// types of Overlays
+    			// 1. Marker - single locations on a map. Markers can also display custom icon Images
+    			// 2. Polyline - series of straight lines on a map
+    			// 3. polygon - series of straight lines on a map, and the shape is "closed"
+    			// 4. Circle and rectangle
+    			// 5. Info window - displays content within a popup balloon on top of a map
+    			// Add a Marker
+    			// The Marker constructor creates a marker(Note that the position property must be set for the marker to display)
+    			var myCenter= new google.maps.LatLng(43.0028,-78.7873);
+    			var icon ={
+    				scaledSize: new google.maps.Size(30,30)
+    			}
+    			var marker = new google.maps.Marker({
+    				position:myCenter,
+    				icon: icon
+    			});
+          //Davis Hall
+    			marker.setMap(map2);
+    		 	//Geolocation
+    		 	// Locate the User's Position The HTML Geolocation API
+    		 	// is used to get the geographical position of a user.
+    		 	// Since this can compromise privacy, the position is not available unless the user approves it.
+    		 	// Using HTML Geolocation
+    		 	// getCurrentPosition() method is used to return the user's position
+    		 	// Show an InfoWindow with some text content for a marker
+    		 	  var infoWindow;
+        infoWindow = new google.maps.InfoWindow;
+        // Geolocation
+        if(navigator.geolocation){
+         navigator.geolocation.getCurrentPosition(
+          function(position) {
+            var Lat = position.coords.latitude;
+            var Lng = position.coords.longitude;
+           var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+           };
+           //Polyline is a line that is drawn through a series of coordinates in an ordered sequence
+         //polyline properties
+         // 1.path- specifies several latitude/longitude coordinates for the line
+         //2. StrokeColor - specifies a hexadecimal color for the line(format:"#FFFFFF")
+         //3.StrokeOpacity-specifies the opacity of the line(a value between 0.0 and 1.0 )
+         //4.strokeWeight - specifies the weight of the line's stroke in pixels
+         //5.editable- defines whether the line is editable by users(true/false)
+         var flightPath = new google.maps.Polyline({
+           path:[
+           //current Geolocation
+           new google.maps.LatLng(Lat,Lng),
+           //Davis Hall
+           new google.maps.LatLng(43.0028,-78.7873),
+           ],
+           strokeColor:"0000FF",
+           strokeWeight:2,
+           strokeOpacity:0.8
+         });
+         flightPath.setMap(map2)
+           var myCenter= new google.maps.LatLng(Lat,Lng);
+           var icon ={
+             scaledSize: new google.maps.Size(30,30)
+           }
+           var marker = new google.maps.Marker({
+             position:myCenter,
+             icon: icon
+           });
+            //Davis Hall
+               infoWindow.setPosition(pos);
+             infoWindow.setContent('Location found.');
+                infoWindow.open(map2);
+           marker.setMap(map2);
+           //Circle
+           // 1. center- specifies the google.maps.LatLng of the center of the Circle
+           // 2. radius - specifies the radius of the circle, in meters
+           var myCity = new google.maps.Circle({
+            center:new google.maps.LatLng(Lat,Lng),
+            radius:200,
+            strokeColor:"#0000FF",
+            strokeOpacity:0.8,
+            strokeWeight:2,
+            fillColor:"#0000FF",
+            fillOpacity:0.4
+           });
+           myCity.setMap(map2)
+       map2.setCenter(pos);
+          },
+          function (){
+           handleLocationError(true, infoWindow,map.getCenter());
+          });
+        } else {
+         // Browser doesn't support Gelocation
+         handleLocationError(false,infoWindow,map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow,pos){
+      	infoWindow.setPosition(pos);
+      	infoWindow.setContent(browserHasGeolocation?
+      				'Error:The Geolocation service failed.' :
+      				'Error:Your browser doesn\'t support Geolocation.');
+      	infoWindow.open(map2);
+      }
+    	</script>
+    <nav>
+      <div class = "logo" href="homepage.html">
+        <h3> UBStalking'-' </h3>
+      </div>
+
+      <form action="" method="post">
+          <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
+          autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
+      </form>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+
+        <div class="menu">
+          <ul>
+          <li>
+          <a href="homepage.php">Home</a></li>
+          <li>
+          <a href="ScheduleMatching.html">Schedule Matching</a></li>
+          <li>
+          <a href="#">Report Bugs</a></li>
+          </ul>
+      </div>
+
+      <label for="nav-toggle" class="burger"><span></span></label>
+    </nav>
+
+	<!-- The HTML Content Division element(<div>) is the generic container for flow content. It has no effect on the content or layout until styled using CSS. -->
+
+		<!-- The script element -->
+
+		<!-- is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code -->
+	<div id="googleMap2" style="width:50%;height:525px"></div>
+
+
+
+
+  <div id="floating-panel" style = "position:absolute;center:10px; top:565px;">
+
+
+   <b>Start: </b>
+   <select id="start">
+     <option value="chicago, il">Alumni Arena</option>
+     <option value="st louis, mo">Baldy Hall</option>
+     <option value="joplin, mo">Capen Hall</option>
+     <option value="oklahoma city, ok">Bonner Hall</option>
+     <option value="amarillo, tx">Clemens Hall</option>
+     <option value="gallup, nm">Davis Hall</option>
+     <option value="flagstaff, az">Knox Lecture Hall</option>
+     <option value="winona, az">Lockwood Memorial Library</option>
+     <option value="kingman, az">Natural Sciences Complex</option>
+     <option value="barstow, ca">Norton Hall</option>
+     <option value="san bernardino, ca">Park Hall</option>
+     <option value="los angeles, ca">UB Commons</option>
+   </select>
+   <b>End: </b>
+   <select id="end">
+     <option value="chicago, il">Student Union</option>
+     <option value="st louis, mo">Capen Hall</option>
+     <option value="joplin, mo">Bonner Hall</option>
+     <option value="oklahoma city, ok">O'Brian Hall</option>
+     <option value="amarillo, tx">Hochstetter Hall</option>
+     <option value="gallup, nm">Norton Hall</option>
+     <option value="flagstaff, az">Davis Hall</option>
+     <option value="winona, az">Clemens Hall</option>
+     <option value="kingman, az">Fronczak Hall</option>
+     <option value="barstow, ca">Cooke Hall</option>
+     <option value="san bernardino, ca">Baldy Hall</option>
+     <option value="los angeles, ca">Alumni Arena</option>
+	   
+   </select>
+   </div>
+    </body>
+</html>
