@@ -1,0 +1,165 @@
+
+form{
+  resize: both;
+  overflow: auto;
+}
+html{
+  font-family: 'Gloria Hallelujah', cursive;
+  display: block;
+  overflow: auto;
+}
+body{
+  margin: 0;
+  padding: 0
+}
+
+.header {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: black;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  padding-right: 100px;
+  text-decoration: none;
+  font-size: 1em;
+  color:white;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  color: red;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  text-decoration: none;
+  color:white;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 25px;
+
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: white;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+#search-bar{
+  border: 1px solid #000000;
+  border-right:none;
+  font-size:15px;
+  padding:10px;
+  outline:none;
+  border-radius:20%;
+  width:4vw;
+  height:35px;
+  position: absolute;
+  text-align: -webkit-left;
+  min-width: 35%;
+  font-family: 'Gloria Hallelujah', cursive;
+  top:22px;
+  left:48%;
+}
+#search-btn{
+  border: 1px solid #000000;
+  font-size:12px;
+  text-align: center;
+  padding: 2px 2px 2px 2px;
+  height:35px;
+  width:4vw;
+  border-radius:30%;
+  background: #ffffff;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  position:absolute;
+  font-family: 'Gloria Hallelujah', cursive;
+  left:83%;
+  top:22px;
+  text-align: center;
+}
