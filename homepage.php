@@ -10,7 +10,6 @@
     <title> UBStalking'-' </title>
 </head><!---->
 <body>
-  <!-- here is the search bar-->
 
   <!-- navigation bar -->
   <header class="header">
@@ -18,9 +17,9 @@
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="OfficeNavigation.html">Office Navigation</a></li>
-    <li><a href="ScheduleMatching.html">Schedule Matching</a></li>
     <li><a href="#">Report Bugs</a></li>
+    <li><a href="OfficeNavigation.html">Office Navigation</a></li>
+    <li><a href="ScheduleMatching.php">Schedule Matching</a></li>
   </ul>
 </header>
    <!-- big logo -->
