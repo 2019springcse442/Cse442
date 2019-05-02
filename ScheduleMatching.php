@@ -21,8 +21,8 @@
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="OfficeNavigation.html">Office Navigation</a></li>
-    <li><a href="#">Report Bugs</a></li>
+    <li><a href="OfficeNavigation.php">Office Navigation</a></li>
+    <li><a href="mailto:ubstalking@gmail.com">Report Bugs</a></li>
     <li><a href="homepage.php">Home</a></li>
   </ul>
 </header>

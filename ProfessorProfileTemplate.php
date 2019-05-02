@@ -14,33 +14,21 @@
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
   </head>
   <body>
-    <nav>
-      <div class = "logo" href="homepage.html">
-        <h3> UBStalking'-' </h3>
-      </div>
-
-      <form action="" method="post">
-          <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
-          autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
-      </form>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-
-        <div class="menu">
-          <ul>
-          <li>
-          <a href="homepage.html">Home</a></li>
-          <li>
-          <a href="OfficeNavigation.html">Office Navigation</a></li>
-          <li>
-          <a href="ScheduleMatching.html">Schedule Matching</a></li>
-          <li>
-          <a href="#">Report Bugs</a></li>
-          </ul>
-      </div>
-
-      <label for="nav-toggle" class="burger"><span></span></label>
-    </nav>
+		<!-- navigation bar -->
+	  <header class="header">
+	  <a href="homepage.php" class="logo">UBStalking'-'</a>
+	  <form action="" method="post">
+	      <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
+	      autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
+	  </form>
+	  <input class="menu-btn" type="checkbox" id="menu-btn" />
+	  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+	  <ul class="menu">
+	    <li><a href="OfficeNavigation.php">Office Navigation</a></li>
+			<li><a href="ScheduleMatching.php">Schedule Matching</a></li>
+	    <li><a href="mailto:ubstalking@gmail.com">Report Bugs</a></li>
+	  </ul>
+	</header>
 
 <h2>
   <?php
