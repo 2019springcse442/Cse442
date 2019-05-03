@@ -169,10 +169,10 @@ body{
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
+  position: relative;
   height: 60%;
-  max-width: 75%;
-  left:10%;
-  right:10%;
+  max-width: 60%;
+  left:5%;
   align-items: center;
   border:3px solid black;
   margin-top:10px;
@@ -184,25 +184,35 @@ html, body {
   margin: 0;
   padding: 0;
 }
-.floating-panel {
+
+#floating-panel{
   border-radius: 20%;
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 15px;
-  position: relative;
-  min-width: 75%;
+  min-width: 65%;
   display:block;
-  z-index: 5;
-  background-color: #fff;
+  left: 5%;
   padding: 5px;
   text-align: center;
   line-height: 30px;
   padding-left: 10px;
   align-items: center;
+  position: relative;
 }
 
-.floating-panel option, select{
+#floating-panel option, select{
     font-family: 'Gloria Hallelujah', cursive;
     font-size:15px;
     border-radius: 20%;
     margin:2px;
+    position: relative;
+    display: inline-block;
+    z-index: 5;
+}
+#right-panel{
+  position:absolute;
+  display: inline-block;
+  max-width: 25%;
+  right:5%;
+  top:40%;
 }
