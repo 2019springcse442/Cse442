@@ -3,70 +3,82 @@
 ?>
 <!DOCTYPE html>
 <html>
-
-<head>
-	<link rel="stylesheet" href="OfficeNavigation.css">
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	<meta charset="utf-8">
-	  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Laila" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-</head>
-
-<!-- navigation bar -->
-<header class="header">
-<a href="homepage.php" class="logo">UBStalking'-'</a>
-	<form action="ProfessorProfileTemplate.php" method="post">
-		<input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
-		autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
-</form>
-<input class="menu-btn" type="checkbox" id="menu-btn" />
-<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-<ul class="menu">
-	<li><a href="ScheduleMatching.php">Scheule Matching</a></li>
-	<li><a href="mailto:ubstalking@gmail.com">Report Bugs</a></li>
-	<li><a href="homepage.php">Home</a></li>
-</ul>
-</header>
-
-<!-- page title -->
-<div class="big-title">
-<h1>Office Navigation</h1>
-</div>
-
-<body>
-
-<div class="floating-panel">
-<span>Start: </span>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions Service</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+<b>Start: </b>
 <select id="start">
   <option value="Davis Hall, #338, Buffalo, NY 14260">North Campus Davis Hall</option>
-  <option value="Student Union, Millersport Hwy, Amherst, NY 14260">Knox Hall</option>
+  <option value="Student Union, Millersport Hwy, Amherst, NY 14260
+
+">Knox Hall</option>
   <option value="Talbert Hall, Buffalo">Talbert Hall</option>
-  <option value="Capen Hall, Buffalo">Capen</option>
-  <option value="University Bookstore, 200 Lee Road, Buffalo, NY 14228">Book Store</option>
-  <option value="Chick-Mex Grill, Buffalo">Chick-Mex Grill</option>
-  <option value="Student Union, Buffalo">Student Union</option>
-  <option value="Starbucks, 520 Lee Road, Amherst, NY 14228">Starbucks in Commons</option>
+  <option value="Capen Hall
+Buffalo">Capen</option>
+  <option value="University Bookstore, 200 Lee Road, Buffalo, NY 14228">BookStore</option>
+
+<option value="Chick-Mex Grill, Buffalo">Chick-Mex Grill</option>
+<option value="Student Union, Buffalo">Student Union</option>
+<option value="Starbucks, 520 Lee Road, Amherst, NY 14228">Starbucks in Commons</option>
+
+
 </select>
 
-<span>End: </span>
+<b>End: </b>
 <select id="end">
   <option value="Capen Hall,Buffalo">Capen</option>
   <option value="Furnas Hall, Buffalo, NY 14260">Furnas Hall</option>
   <option value="UB Center for the Arts, 103 Center For The Arts, Buffalo, NY 14260">UB Center for the Arts</option>
-  <option value="Cooke Hall, Buffalo, NY 14260">Cooke Hall</option>
-  <option value="Park Hall #204 Flint Rd, Buffalo, NY 14260">Park Hall</option>
+  <option value="Cooke Hall, Buffalo, NY 14260">Cook Hall</option>
+  <option value="Park Hall #204
+Flint Rd
+Buffalo, NY 14260">Park Hall</option>
   <option value="Alumni Arena, 175 Alumni Arena, Buffalo, NY 14228">Alumni Arena</option>
 </select>
+</div>
+<div id="floating-panel" style=" left :10px; top: 55px;">
+   <b>Mode of Travel: </b>
+   <select id="mode">
+ <option value="TRANSIT">Transit</option>
+     <option value="DRIVING">Driving</option>
+     <option value="BICYCLING">Bicycling</option>
 
-<span>Travel Mode:</span>
-<select id="mode">
-  <option value="TRANSIT">Transit</option>
-  <option value="DRIVING">Driving</option>
-  <option value="BICYCLING">Bicycling</option>
-</select>
+
+
+
+   </select>
    </div>
-
-
+ <div id="right-panel"></div>
     <div id="map"></div>
     <script>
       function initMap() {
@@ -76,7 +88,16 @@
           zoom: 15,
           center: {lat: 43.0008, lng: -78.7890}
         });
+
         directionsDisplay.setMap(map);
+				directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+				var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+
+
 
         var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
