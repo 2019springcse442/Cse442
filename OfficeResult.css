@@ -1,10 +1,9 @@
-
 form{
   resize: both;
-  overflow: hidden;
+  overflow: auto;
 }
 html{
- font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
   display: block;
   overflow: auto;
 }
@@ -15,6 +14,8 @@ body{
 
 .header {
   background-color: black;
+  width: 100%;
+  z-index: 3;
 }
 
 .header ul {
@@ -160,49 +161,8 @@ body{
   top:18px;
   text-align: center;
 }
-
 .big-title h1{
   position: relative;
   left:25px;
   font-size: 3em;
-}
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
-#map {
-  height: 60%;
-  max-width: 75%;
-  left:10%;
-  right:10%;
-  align-items: center;
-  border:3px solid black;
-  margin-top:10px;
-  margin-right: 0;
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.floating-panel {
-  border-radius: 20%;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 15px;
-  position: relative;
-  min-width: 75%;
-  display:block;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  text-align: center;
-  line-height: 30px;
-  padding-left: 10px;
-  align-items: center;
-}
-
-.floating-panel option, select{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size:15px;
-    border-radius: 20%;
-    margin:2px;
 }
