@@ -1,5 +1,6 @@
 <?php
 	include 'database.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,6 @@
 </head>
 
 <body>
-
 	<!-- navigation bar -->
 	<header class="header">
 	<a href="homepage.php" class="logo">UBStalking'-'</a>
@@ -21,7 +21,7 @@
 	<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 	<ul class="menu">
 		<li><a href="OfficeNavigation.php">Office Navigation</a></li>
-		<li><a href="EventHandler.php">Event Handler</a></li>
+		<li><a href="ScheduleMatching.php">Schedule Matching</a></li>
 		<li><a href="mailto:ubstalking@gmail.com">Report Bugs</a></li>
 	</ul>
 </header>
@@ -35,7 +35,6 @@
 
 
 
-
 <!-- page title -->
 <div class="big-title">
 <h1>Office Navigation</h1>
@@ -45,7 +44,6 @@
 <div id="floating-panel">
 <span>Start: </span>
 <select id="start">
-
   <option value="2637+42 Buffalo, New York">North Campus Davis Hall</option>
   <option value="2626+CW Getzville, Amherst, NY">Knox Hall</option>
   <option value="2626+85 Buffalo, New York">Capen</option>
@@ -61,7 +59,6 @@
 
 <span>End: </span>
 <select id="end">
-
   <option value="2626+85 Buffalo, New York">Capen</option>
   <option value="2627+4H Buffalo, New York">LockWood</option>
   <option value="2628+9Q Buffalo, New York">UB Center for the Arts</option>
@@ -70,23 +67,19 @@
   <option value="2629+2H Buffalo, New York">Alumni Arena</option>
   <option value="2657+HG Getzville, Amherst, NY">C3</option>
 <option value="X54M+QP BUffalo, New York">Goodyear Hall</option>
-
 </select>
 
 <span>Travel Mode:</span>
 <select id="mode">
-
 	<option value="WALKING">Walking</option>
 
   <option value="DRIVING">Driving</option>
   <option value="BICYCLING">Bicycling</option>
 	  <option value="TRANSIT">Transit</option>
-
 </select>
    </div>
 <!-- Map -->
     <div id="map"></div>
-
 		 &nbsp;
 <!-- Direction details -->
 <div id="warnings-panel"></div>
@@ -135,20 +128,7 @@
 						 });
 	 }
 			// Try HTML5 geolocation.
-			 if (navigator.geolocation) {
-				 navigator.geolocation.getCurrentPosition(function(position) {
-					 var pos = {
-						 lat: position.coords.latitude,
-						 lng: position.coords.longitude
-					 };
-					 infoWindow.setPosition(pos);
-					 infoWindow.setContent('Location found.');
-					 infoWindow.open(map);
-					 map.setCenter(pos);
-				 }, function() {
-					 handleLocationError(true, infoWindow, map.getCenter());
-				 });
-			 }
+
 	 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 		 var selectedMode = document.getElementById('mode').value;
 		 directionsService.route({
@@ -168,7 +148,6 @@
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgoBc7ob_mDxVMzt1TpVT4hYlkh2XBXYY&callback=initMap&language=en">
-
     </script>
   </body>
 </html>

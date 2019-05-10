@@ -14,25 +14,28 @@
   <!-- navigation bar -->
   <header class="header">
   <a href="homepage.php" class="logo">UBStalking'-'</a>
-  <form action="" method="post">
+    <form action="ProfessorProfileTemplate.php" method="post">
       <input type = "text" id = "search-bar" placeholder = "Search for your professors!" value ="" maxlength ="50"
       autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-btn" value="Go!"/>
   </form>
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="OfficeNavigation.html">Office Navigation</a></li>
-    <li><a href="#">Report Bugs</a></li>
+    <li><a href="OfficeNavigation.php">Office Navigation</a></li>
+    <li><a href="mailto:ubstalking@gmail.com">Report Bugs</a></li>
     <li><a href="homepage.php">Home</a></li>
   </ul>
 </header>
+<!-- page title -->
 <div class="big-title">
 <h1>Schedule Matching</h1>
 </div>
-<form action="" method="post" class="oh"><span class="oh">Office Hour:</span>
+<!-- search for office hour -->
+<form action="OfficeResult.php" method="post" class="oh" target="_blank"><span class="oh">Office Hour:</span>
     <input type = "text" id = "search-officehour" placeholder = "Search for your professors!" value ="" maxlength ="50"
     autocompleete = "off" onMousedown ="" onBlur = "" /><input type = "submit" id = "search-oh-btn" value="Go!"/>
 </form>
+
 
 <!-- table part below -->
 <table class= "schedule" cellspacing="0">

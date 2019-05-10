@@ -1,4 +1,3 @@
-
 form{
   resize: both;
   overflow: auto;
@@ -15,7 +14,6 @@ body{
 
 .header {
   background-color: black;
-  position: fixed;
   width: 100%;
   z-index: 3;
 }
@@ -133,17 +131,17 @@ body{
   border: 1px solid #000000;
   border-right:none;
   font-size:15px;
-  padding:10px;
+  padding:5px;
   outline:none;
   border-radius:20%;
   width:4vw;
-  height:35px;
+  height:30px;
   position: absolute;
   text-align: -webkit-left;
   min-width: 35%;
   font-family: 'Gloria Hallelujah', cursive;
-  top:22px;
-  left:48%;
+  top:15px;
+  left:40%;
 }
 #search-btn{
   border: 1px solid #000000;
@@ -159,7 +157,62 @@ body{
   outline:none;
   position:absolute;
   font-family: 'Gloria Hallelujah', cursive;
-  left:83%;
-  top:22px;
+  left:75%;
+  top:18px;
   text-align: center;
+}
+
+.big-title h1{
+  position: relative;
+  left:25px;
+  font-size: 3em;
+}
+.schedule{
+  text-align: center;
+  padding:10px;
+  margin:10px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor:pointer;
+}
+.tooltip a{
+  color:black;
+  text-decoration: none;
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  color: black;
+  background-color: white;
+  border:1px solid black;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  padding: 3px 3px 3px 3px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+td{
+  padding:5px;
+  width:auto;
+  border: 1px solid black;
+}
+td:nth-last-child(1){
+  border-right:2px solid black;
+}
+table{
+  position: relative;
+  top:30%;
+  left:10%;
+  width:65%;
+  height:100%;
+  border-radius: 10px;
+  border: 4px solid black;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 15px;
 }
