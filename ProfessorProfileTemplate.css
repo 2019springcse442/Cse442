@@ -1,6 +1,7 @@
 form{
   resize: both;
   overflow: auto;
+
 }
 html{
   font-family: 'Gloria Hallelujah', cursive;
@@ -34,6 +35,7 @@ body{
   font-size: 1em;
   color:white;
 }
+
 
 .header li a:hover,
 .header .menu-btn:hover {
@@ -98,6 +100,7 @@ body{
 
 .header .menu-icon .navicon:after {
   top: -5px;
+
 }
 
 /* menu btn */
@@ -249,6 +252,7 @@ textarea{
   border: 5px solid #000000;
   padding: 5px;
 }
+
 .payment{
   position:relative;
   left:5%;
@@ -267,3 +271,4 @@ textarea{
   font-family: 'Gloria Hallelujah', cursive;
   text-align: center;
 }
+
