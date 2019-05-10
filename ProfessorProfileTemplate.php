@@ -30,6 +30,7 @@
 	  </ul>
 	</header>
 
+
 <h2>
   <?php
   	if(isset($_POST['submit-search'])){
